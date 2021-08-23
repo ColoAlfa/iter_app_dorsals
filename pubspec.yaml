@@ -23,6 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  qr_code_scanner: ^0.5.2
+  numeric_keyboard: ^1.1.0
 
 
   # The following adds the Cupertino Icons font to your application.

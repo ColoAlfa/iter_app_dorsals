@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:iter_app_dorsals/Entrades/all.dart';
+import 'package:iter_app_dorsals/scanner.dart';
 
 class qr extends StatefulWidget {
   const qr({Key? key}) : super(key: key);
@@ -10,6 +9,7 @@ class qr extends StatefulWidget {
 }
 
 class _qrState extends State<qr> {
+  String _result = 'vacio';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,12 +24,28 @@ class _qrState extends State<qr> {
         ),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.qr_code),
-          onPressed: () {},
+          onPressed: () {
+            _openscanner(context);
+          },
           backgroundColor: Colors.lightBlueAccent[100],
           foregroundColor: Colors.blue[900],
         ),
         backgroundColor: Colors.lightGreenAccent,
+        body: Center(
+          child: Text(
+            _result,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+        ),
       ),
     );
+  }
+
+  Future _openscanner(BuildContext context) async {
+    final result = await Navigator.push(
+        context, MaterialPageRoute(builder: (c) => scanner()));
+    setState(() {
+      _result = result;
+    });
   }
 }

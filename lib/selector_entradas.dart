@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:iter_app_dorsals/Entrades/all.dart';
@@ -29,9 +30,12 @@ class _selector_entradasState extends State<selector_entradas> {
           bottomNavigationBar: CurvedNavigationBar(
             backgroundColor: Colors.lightGreenAccent,
             items: <Widget>[
-              Icon(Icons.view_day_rounded, size: 30),
+              Icon(
+                CupertinoIcons.number_circle,
+                size: 30,
+              ),
               Icon(Icons.qr_code, size: 30),
-              Icon(Icons.sports_handball, size: 30),
+              Icon(CupertinoIcons.hand_raised, size: 30),
             ],
             onTap: (tappedIndex) {
               hasChanged = true;
@@ -70,13 +74,10 @@ class _selector_entradasState extends State<selector_entradas> {
     switch (page) {
       case 0:
         return dorsalPage;
-        break;
       case 1:
         return qrPage;
-        break;
       case 2:
         return manualPage;
-        break;
       default:
         return Text('');
     }

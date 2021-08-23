@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:iter_app_dorsals/TextGenerator/TextGenerator.dart';
 import 'package:iter_app_dorsals/Entrades/all.dart';
 import 'package:iter_app_dorsals/selector_entradas.dart';
@@ -166,7 +165,9 @@ class _ConfigurationState extends State<Configuration> {
                               icon: entry == 'Qr'
                                   ? Icon(Icons.check_box)
                                   : Icon(Icons.check_box_outline_blank)),
-                          Text(widget.text.QREntry(true)),
+                          Text(
+                            widget.text.QREntry(true),
+                          ),
                         ],
                       ),
                       Row(
@@ -203,9 +204,9 @@ class _ConfigurationState extends State<Configuration> {
                       Icons.navigate_next,
                     ),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.lightGreenAccent,
-                      onPrimary: Colors.green[900],
-                      onSurface: Colors.green[800],
+                      primary: Colors.lightBlueAccent,
+                      onPrimary: Colors.blue[900],
+                      onSurface: Colors.blueGrey[800],
                     ),
                   ),
                 ],
@@ -213,6 +214,7 @@ class _ConfigurationState extends State<Configuration> {
             )
           ],
         ),
+        backgroundColor: Colors.lightGreenAccent,
       ),
     );
   }
